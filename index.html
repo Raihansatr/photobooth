@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SnapBox – Photobooth Online</title>
+<meta name="description" content="Photobooth online gratis: ambil foto strip dengan filter, stiker, dan bingkai. Diproses di perangkatmu.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📸%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="#top">SnapBox<i>📸</i></a>
+  <div class="nav-links">
+    <a href="#booth">Booth</a>
+    <a href="#studio">Studio</a>
+    <a href="#booth" class="nav-cta">Mulai foto</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-text">
+    <h1>Masuk booth,<br>keluar bawa strip.</h1>
+    <p>Photobooth di browser: pilih layout, filter, dan stiker, lalu unduh atau cetak hasilnya. Tanpa aplikasi, tanpa akun.</p>
+    <a href="#booth" class="btn big">Mulai foto sekarang</a>
+    <ol class="steps">
+      <li><b>1</b> Pilih layout &amp; filter</li>
+      <li><b>2</b> Pose saat hitung mundur</li>
+      <li><b>3</b> Unduh strip PNG</li>
+    </ol>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="mini-strip"><span>😆</span><span>😎</span><span>🥳</span><span>😍</span><em>SnapBox Moments</em></div>
+  </div>
+</header>
+
+<main>
+  <div class="grid" id="booth">
+    <section class="panel booth">
+      <h2>Booth</h2>
+      <div class="stage">
+        <video id="video" autoplay playsinline muted></video>
+        <div id="count"></div>
+        <div id="flash"></div>
+        <div id="msg" hidden></div>
+      </div>
+      <div class="actions">
+        <button id="start" class="btn big">📸 Mulai Foto</button>
+        <button id="stop" class="btn" hidden>✋ Berhenti</button>
+        <label class="btn">🖼️ Upload Foto<input type="file" id="file" accept="image/*" multiple hidden></label>
+        <select id="camSel" class="btn" hidden aria-label="Pilih kamera"></select>
+      </div>
+      <div id="thumbs" class="thumbs"></div>
+      <p class="hint">Klik foto kecil untuk mengulang satu foto saja.</p>
+    </section>
+
+    <section class="panel result">
+      <h2>Hasil strip</h2>
+      <div class="canvas-wrap"><canvas id="out"></canvas></div>
+      <div class="actions">
+        <button id="dl" class="btn big">⬇️ Unduh PNG</button>
+        <button id="print" class="btn">🖨️ Cetak</button>
+        <button id="reset" class="btn">🗑️ Ulangi</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel opts" id="studio">
+    <h2>Studio</h2>
+    <div class="opts-grid">
+      <div><h3>Layout</h3><div id="layouts" class="row"></div></div>
+      <div><h3>Hitung mundur</h3><div id="timers" class="row"></div></div>
+      <div><h3>Filter</h3><div id="filters" class="row"></div></div>
+      <div><h3>Stiker</h3><div id="stickers" class="row"></div></div>
+      <div><h3>Warna bingkai</h3><div id="themes" class="row"></div></div>
+      <div>
+        <h3>Teks &amp; pengaturan</h3>
+        <input type="text" id="caption" maxlength="30" placeholder="Tulis keterangan..." value="SnapBox Moments" aria-label="Keterangan">
+        <label class="tog"><input type="checkbox" id="date" checked> Tampilkan tanggal</label>
+        <label class="tog"><input type="checkbox" id="mirror" checked> Mode cermin</label>
+        <label class="tog"><input type="checkbox" id="sound" checked> Suara hitung mundur</label>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>SnapBox</b>
+  <span>Foto diproses di perangkatmu dan tidak diunggah ke server.</span>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
